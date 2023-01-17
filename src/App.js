@@ -3,18 +3,19 @@ import { useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
-const color = "black";
+const color = "white";
 const divStyles = css`
   margin-top: 20px;
-  background-image: "https://via.placeholder.com/500"
   margin-left: 20px;
   padding: 10px;
-  width: 20em;
+  width: 18em;
+  height: 18em;
   border: solid black;
   color: ${color};
   border-radius: 1.3em;
-  font-size: 2rem;
-
+  font-size: 2em;
+  text-align: center;
+  background-image: url("https://api.memegen.link/images/doge.jpg");
   
 `;
 
@@ -52,13 +53,24 @@ export default function MemeGenerator() {
          } }/>
       <br />
       <br />
+
+
       <br />
       <div  css = {divStyles}>
-      Text oben: {toptext}
+      {toptext}  {/* Text oben:*/}
       <br />
       <br />
       <br />
-      Text unten: {bottomtext}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      {bottomtext}  {/* Text unten: */}
       </div>
 
 
