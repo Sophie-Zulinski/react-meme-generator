@@ -1,0 +1,7 @@
+const { registerFont, createCanvas } = require('canvas');
+registerFont(require('@canvas-fonts/impact'), { family: 'Impact' });
+const canvas = createCanvas(400, 48);
+const ctx = canvas.getContext('2d');
+ctx.font = `24px "Impact"`;
+ctx.fillText('Impact', 5, 30);
+const png = canvas.toBuffer();
