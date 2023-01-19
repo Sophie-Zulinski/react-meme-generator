@@ -31,8 +31,18 @@ class App extends React.Component {
       <div className="App">
         <h1> Fetch data from an api in react </h1>{' '}
         {items.map((item) => (
-          <ol key={item.id}>Pictures: {item.blank}</ol>
+          // eslint-disable-next-line react/jsx-key
+          <img
+            style={{
+              width: '50px',
+              cursor: 'pointer',
+              height: '50px',
+            }}
+            src={item.blank}
+            alt="alt-text"
+          />
         ))}
+        <h1> create a meme</h1>
       </div>
     );
   }

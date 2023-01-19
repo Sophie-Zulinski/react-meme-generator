@@ -1,51 +1,30 @@
-import './App.css';
-import React from 'react';
+import './index.css';
+import RealAPI from './RealAPI';
+import RealFormular from './RealFormular';
 
-class App extends React.Component {
-  // Constructor
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      items: [],
-      DataisLoaded: false,
-    };
-  }
-
-  // ComponentDidMount is used to
-  // execute the code
-  componentDidMount() {
-    fetch('https://api.memegen.link/templates')
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({
-          items: json,
-          DataisLoaded: true,
-        });
-      });
-  }
-  render() {
-    const { DataisLoaded, items } = this.state;
-
-    return (
-      <div className="App">
-        <h1> Fetch data from an api in react </h1>{' '}
-        {items.map((item) => (
-          // eslint-disable-next-line react/jsx-key
-          <img
-            style={{
-              width: '50px',
-              cursor: 'pointer',
-              height: '50px',
-            }}
-            src={item.blank}
-            alt="alt-text"
-          />
-        ))}
-        <h1> create a meme</h1>
-      </div>
-    );
-  }
+function Header(props) {
+  return (
+    <header>
+      Meme Generator
+      <br />
+    </header>
+  );
 }
 
-export default App;
+export default function App() {
+  return (
+    <>
+      <Header mode="dark" />
+      <RealAPI />
+      <br />
+      <br />
+      <br />
+      <RealFormular />
+      <br />
+      <br />
+      <br />
+
+      <br />
+    </>
+  );
+}
