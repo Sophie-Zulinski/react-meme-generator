@@ -35,11 +35,6 @@ export default function MemeGenerator() {
             setToptext(event.currentTarget.value);
           }}
         />
-        <br />
-
-        <br />
-        <br />
-        <br />
         <h2>Bottom text</h2>
         <input
           value={bottomtext}
@@ -49,30 +44,14 @@ export default function MemeGenerator() {
             setBottomtext(event.currentTarget.value);
           }}
         />
-        <br />
-        <br />
-
-        <br />
         <div css={divStyles}>
           {toptext} {/* Text oben:*/}
           <br />
           <br />
           {bottomtext} {/* Text unten: */}
         </div>
-
-        <br />
-        <br />
-        <br />
       </>
       <h2>onClick</h2>
-      <button
-        onClick={() => {
-          console.log('log');
-          // setAirline('Niki Air');
-        }}
-      >
-        console.log
-      </button>
     </>
   );
 }

@@ -42,6 +42,7 @@ class App extends React.Component {
             alt="alt-text"
           />
         ))}
+        <h1> create a meme</h1>
       </div>
     );
   }
