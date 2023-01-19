@@ -39,7 +39,7 @@ class App extends React.Component {
               height: '50px',
             }}
             src={item.blank}
-            alt="alt-text"
+            alt="bild"
           />
         ))}
       </div>
