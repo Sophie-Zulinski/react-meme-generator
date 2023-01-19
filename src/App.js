@@ -1,88 +1,50 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import { useState } from 'react';
+import './App.css';
+import React from 'react';
 
-const color = 'white';
-const divStyles = css`
-  margin-top: 20px;
-  margin-left: 20px;
-  padding: 10px;
-  width: 18em;
-  height: 18em;
-  border: solid black;
-  color: ${color};
-  border-radius: 1.3em;
-  font-size: 2em;
-  text-align: center;
-  background-image: url('https://api.memegen.link/images/doge.jpg');
-`;
+class App extends React.Component {
+  // Constructor
+  constructor(props) {
+    super(props);
 
-export default function MemeGenerator() {
-  const [toptext, addtoptext] = useState('');
-  const [bottomtext, addtoptextbottom] = useState('');
+    this.state = {
+      items: [],
+      DataisLoaded: false,
+    };
+  }
 
-  return (
-    <>
-      <>
-        <h1>Meme Generator</h1>
+  // ComponentDidMount is used to
+  // execute the code
+  componentDidMount() {
+    fetch('https://api.memegen.link/templates')
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({
+          items: json,
+          DataisLoaded: true,
+        });
+      });
+  }
+  render() {
+    const { DataisLoaded, items } = this.state;
 
-        <h2>Top text</h2>
-        <input
-          value={toptext}
-          onChange={(event) => {
-            // The current value of the text in the input
-            console.log('event.currentTarget.value', event.currentTarget.value);
-            addtoptext(event.currentTarget.value);
-          }}
-        />
-        <br />
-
-        <br />
-        <br />
-        <br />
-        <h2>Bottom text</h2>
-        <input
-          value={bottomtext}
-          onChange={(event) => {
-            // The current value of the text in the input
-            console.log('event.currentTarget.value', event.currentTarget.value);
-            addtoptextbottom(event.currentTarget.value);
-          }}
-        />
-        <br />
-        <br />
-
-        <br />
-        <div css={divStyles}>
-          {toptext} {/* Text oben:*/}
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          {bottomtext} {/* Text unten: */}
-        </div>
-
-        <br />
-        <br />
-        <br />
-      </>
-      <h2>onClick</h2>
-      <button
-        onClick={() => {
-          console.log('log');
-          // setAirline('Niki Air');
-        }}
-      >
-        console.log
-      </button>
-    </>
-  );
+    return (
+      <div className="App">
+        <h1> Fetch data from an api in react </h1>{' '}
+        {items.map((item) => (
+          // eslint-disable-next-line react/jsx-key
+          <img
+            style={{
+              width: '50px',
+              cursor: 'pointer',
+              height: '50px',
+            }}
+            src={item.blank}
+            alt="alt-text"
+          />
+        ))}
+      </div>
+    );
+  }
 }
+
+export default App;
