@@ -1,7 +1,7 @@
 import './index.css';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import RealAPI from './RealAPI';
 import RealFormular from './RealFormular';
 
@@ -26,6 +26,9 @@ function Header(props) {
 }
 
 export default function App() {
+  const [hexcolor, setHexcolor] = useState('background color hex code');
+  const randomHex = Math.floor(Math.random() * 16777215).toString(16);
+
   return (
     <div css={divStyles}>
       <Header mode="dark" />
@@ -43,7 +46,15 @@ export default function App() {
       <br />
       <br />
       <br />
-
+      <div>Generated Color: {hexcolor}</div>
+      <button
+        onClick={() =>
+          // 3. Set the state variable to a new value
+          setHexcolor('#' + randomHex)
+        }
+      >
+        Generate
+      </button>
       <br />
     </div>
   );
