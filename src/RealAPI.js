@@ -12,8 +12,6 @@ class App extends React.Component {
     };
   }
 
-  // ComponentDidMount is used to
-  // execute the code
   componentDidMount() {
     fetch('https://api.memegen.link/templates')
       .then((res) => res.json())
@@ -29,7 +27,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <h1> Fetch data from an api in react </h1>{' '}
+        <h1> Gallery of all memes </h1>{' '}
         {items.map((item) => (
           // eslint-disable-next-line react/jsx-key
           <img
